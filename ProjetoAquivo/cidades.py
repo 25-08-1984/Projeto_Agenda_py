@@ -10,26 +10,26 @@ class Cidades(object):
         self.uf      = uf
 
     def insertcid(self):
-        banco = Banco
+        banco = Banco()
         try:
             c= banco.conexao.cursor()
             c.execute("insert into tbl_cidades(nomecid,uf) values('" + self.nomecid + "', '" + self.uf + "')")
             banco.conexao.commit()
             c.close()
-            messagebox.showinfo('','Cidade cadastrada com sucesso!')
+            messagebox.showinfo('Sucesso','Cidade cadastrada com sucesso!')
         except:
-            messagebox.showinfo('','Ocorreu um erro no cadastro!')
+            messagebox.showinfo('Erro','Ocorreu um erro no cadastro!')
 
     def updatecid(self):
         banco = Banco()
         try:
             c = banco.conexao.cursor()
-            c.execute("update into tbl_cidades set nomecid = '" + self.nomecid + "', '" + self.uf + "'  where idcidade = " + self.idcidade +  "")
+            c.execute("update tbl_cidades set nomecid = '" + self.nomecid + "', uf = '" + self.uf + "'  where idcidade = " + self.idcidade +  "")
             banco.conexao.commit()
             c.close()
             messagebox.showinfo('','Cidade alterada com sucesso!')
         except:
-           messagebox.showinfo('','Ocorreu um erro na alteração na alteração da cidade!')
+            messagebox.showinfo('','Ocorreu um erro na alteração na alteração da cidade!')
 
     def deletecid(self):
         banco = Banco()
@@ -42,11 +42,11 @@ class Cidades(object):
         except:
             messagebox.showinfo("",'Ocorreu um erro na exclusão!')
 
-    def selectcid(self,idusuario):
+    def selectcid(self,idcidade):
         banco = Banco()
         try :
             c = banco.conexao.cursor()
-            c.execute("select  * from tbl_cidades where idcidade = " + idcidade + " ")
+            c.execute("select  * from tbl_cidades where idcidade = " + self.idcidade + "  ")
             for linha in c:
                 self.idcidade = linha[0]
                 self.nomecid = linha[1]

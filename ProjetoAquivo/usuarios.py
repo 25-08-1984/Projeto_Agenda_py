@@ -20,9 +20,9 @@ class Usuarios(object):
             self.usuario + "', '" + self.senha + "' )")
             banco.conexao.commit()
             c.close()
-            messagebox.showinfo("","Cidade inserida com sucesso!")
+            messagebox.showinfo("Sucesso","Cidade inserida com sucesso!")
         except:
-            messagebox.showinfo("","Ocorreu um erro na inserção do usuário")
+            messagebox.showinfo("Erro","Ocorreu um erro na inserção do usuário")
     def updateUser(self):
         banco = Banco()
         try:
@@ -32,7 +32,7 @@ class Usuarios(object):
             "' where idusuario = " + self.idusuario + " ")
             banco.conexao.commit()
             c.close()
-            messagebox.showinfo("Usuário atualizado com sucesso!")
+            messagebox.showinfo("Sucesso","Usuário atualizado com sucesso!")
         except:
             messagebox.showinfo("","Usuário atualizado com sucesso!")
     def deleteUser(self):

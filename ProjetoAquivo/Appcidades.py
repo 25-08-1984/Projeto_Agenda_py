@@ -64,13 +64,11 @@ class Application:
         self.bntInsert["command"] = self.inserircid
         self.bntInsert.pack(side=LEFT)
 
-        self.bntAlterar = Button(self.container5, text="Alterar",
-        font=self.fonte, width=12)
+        self.bntAlterar = Button(self.container5, text="Alterar",font=self.fonte, width=12)
         self.bntAlterar["command"] = self.atualcid
         self.bntAlterar.pack(side=LEFT)
 
-        self.bntExcluir = Button(self.container5, text="Excluir",
-        font=self.fonte, width=12)
+        self.bntExcluir = Button(self.container5, text="Excluir",font=self.fonte, width=12)
         self.bntExcluir["command"] = self.deletecid
         self.bntExcluir.pack(side=LEFT)
 
